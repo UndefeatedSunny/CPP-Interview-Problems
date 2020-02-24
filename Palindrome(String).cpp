@@ -4,7 +4,7 @@ using namespace std;
  
 int main() {
     string s;
-	getline(cin,s);									// Reading input from STDIN
+	getline(cin,s);								
 	
 	for(int i=0;i<=(s.size()/2);i++)                //   we can also use { s.length } provide same o/p
 	{
