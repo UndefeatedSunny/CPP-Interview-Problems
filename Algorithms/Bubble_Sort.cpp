@@ -15,7 +15,7 @@ int main() {
 	
 	// Bubble Short
 	
-	for(int i=0;i<num-1;i++)        // PASS 
+	for(int i=0;i<num-1;i++)        // SWAP
 	{
 	    for(int j=0;j<num-1-i;j++)  // COMPARISION   -->> (num-1-i) is for ignoring comparisons of elements which have already been compared in earlier iterations
 	    {
