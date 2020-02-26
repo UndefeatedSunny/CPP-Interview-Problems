@@ -8,15 +8,15 @@ int main() {
 	cin >> num;	
 	int arr[num];
 	
-	for(int in=0;in<num;in++)
+	for(int in=0;in<num;in++)            // Take I/P
 	{
 	    cin>>arr[in];
 	}
 	
-	for(int i=0;i<num-1;i++)
+	for(int i=0;i<num-1;i++)             // SWAP
 	{
 	    minvalue=i;
-	    for(int j=i+1;j<num;j++)
+	    for(int j=i+1;j<num;j++)         // COMPARISON
 	    {
 	        if(arr[j]<arr[minvalue])
 	        {
@@ -28,7 +28,7 @@ int main() {
 	                                                                     //                                  arr[i] = temp;          
 	for(int out=0;out<num;out++)
 	{
-	    cout<<arr[out]<<" ";
-	}
+	    cout<<arr[out]<<" ";	      // O/P
+	}  
 	return 0;
 }
