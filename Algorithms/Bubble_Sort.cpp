@@ -29,7 +29,7 @@ int main() {
 	}
 	for(int out=0;out<num;out++)      // SORTED O/P
 	{
-	    cout<<arr[out];
+	    cout<<arr[out]<<" ";
 	}
 	return 0;
 }
