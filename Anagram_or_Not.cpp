@@ -42,5 +42,6 @@ int main()
 	else
 	{
 		cout<<"Two string must have same number of character to be Anagram";
-	}return 0;
+	}
+    return 0;
 }
