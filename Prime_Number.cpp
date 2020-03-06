@@ -11,7 +11,7 @@ int main()
         if(num%i==0)
         {
             temp++;
-            brek;
+            break;
         }
     }
     if(temp==0)
