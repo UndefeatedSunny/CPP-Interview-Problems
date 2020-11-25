@@ -1,35 +1,58 @@
-#include <iostream>
-
+#include <bits/stdc++.h>
+#define ll long long int 
 using namespace std;
 
-int main() {
-	int num;
-	cin >> num;								
-	int arr[num];
-	int temp=0;
-	
-	for(int in=0;in<num;in++)    // Initialize or take the i/p from the user.
-	{
-	    cin>>arr[in];
-	}
-	
-	// Bubble Short
-	
-	for(int i=0;i<num-1;i++)        // SWAP
-	{
-	    for(int j=0;j<num-1-i;j++)  // COMPARISION   -->> (num-1-i) is for ignoring comparisons of elements which have already been compared in earlier iterations
-	    {
-	        if(arr[j]>arr[j+1])
-	        {
-	            temp = arr[j];
-	            arr[j] = arr[j+1];
-	            arr[j+1] = temp;
-	        }
-	    }
-	}
-	for(int out=0;out<num;out++)      // SORTED O/P
-	{
-	    cout<<arr[out]<<" ";
-	}
-	return 0;
+void print(ll arr[] , ll num)           // Printing 
+{
+    for(int i=0;i<num;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+}
+
+
+void swap(ll *n1 , ll *n2)              // Swapping
+{
+    ll temp = *n1;
+    *n2 = *n1;
+    *n1 = temp;
+} 
+    
+void bubble_sort(ll arr[] , ll num)     // Sorting 
+{
+    for(ll i=0;i<num-1;i++)
+    {
+        for(ll j=0;j<(num-i-1);j++)
+        {
+            if(arr[j]>arr[j+1])
+            {
+                swap(&arr[j],&arr[j+1]);
+            }
+        }
+    }   
+}
+
+
+int main()                               // Main
+{
+    ll num;
+    cin>>num;
+    
+    ll arr[num];
+    
+    for(int i=0;i<num;i++)
+    {
+        cin>>arr[i];
+    }
+    
+    cout<<"BEFORE SORTING : ";
+    print(arr,num);
+    
+    bubble_sort(arr,num);
+    
+    cout<<"AFTER SORTING : ";
+    print(arr,num);
+    
+    return 0;
 }
