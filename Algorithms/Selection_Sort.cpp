@@ -1,34 +1,66 @@
-#include <iostream>
-
+#include <bits/stdc++.h>
+#define ll long long int 
 using namespace std;
 
-int main() {
-	int num;
-	int minvalue;
-	cin >> num;	
-	int arr[num];
-	
-	for(int in=0;in<num;in++)            // Take I/P
-	{
-	    cin>>arr[in];
-	}
-	
-	for(int i=0;i<num-1;i++)             // SWAP
-	{
-	    minvalue=i;
-	    for(int j=i+1;j<num;j++)         // COMPARISON
-	    {
-	        if(arr[j]<arr[minvalue])
-	        {
-	            minvalue=j;
-	        }
-	    }
-	    swap(arr[minvalue],arr[i]);                                      //     -->> {Another Method}    int temp = arr[minvalue];     
-	}                                                                    //                                  arr[minvalue] = arr[i];
-	                                                                     //                                  arr[i] = temp;          
-	for(int out=0;out<num;out++)
-	{
-	    cout<<arr[out]<<" ";	      // O/P
-	}  
-	return 0;
+
+void print(ll arr[] , ll num)               // Printing 
+{
+    for(int i=0;i<num;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+}
+
+
+void swap(ll *n1 , ll *n2)                  // Swapping
+{
+    ll temp = *n1;
+    *n1 = *n2;
+    *n2 = temp;
+} 
+  
+
+void selection_sort(ll arr[] , ll num)      // Sorting 
+{   
+    for(ll i=0;i<num-1;i++)
+    {
+        ll min=i;
+        
+        for(ll j=i+1;j<num;j++)
+        {
+            if(arr[j]<arr[min])
+            {
+                min=j;
+            }
+        }
+        if(min!=i)
+        {
+            swap(&arr[i],&arr[min]);
+        }
+    }
+}
+
+
+int main()                                  // Main
+{
+    ll num;
+    cin>>num;
+    
+    ll arr[num];
+    
+    for(ll i=0;i<num;i++)
+    {
+        cin>>arr[i];
+    }
+    
+    cout<<"BEFORE SORTING : ";
+    print(arr,num);
+    
+    selection_sort(arr,num);
+    
+    cout<<"AFTER SORTING : ";
+    print(arr,num);
+    
+    return 0;
 }
