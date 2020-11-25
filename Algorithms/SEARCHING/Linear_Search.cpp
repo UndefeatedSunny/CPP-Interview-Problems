@@ -1,25 +1,25 @@
 #include <bits/stdc++.h>
+#define ll long long int 
 using namespace std;
 
 int main()
 {
-    int n,num,i;
-
-    cout<<"Enter the no elements"<<endl;
+    ll n;
     cin >> n;
     
-    int arr[n];
+    ll arr[n];
         
-    cout<<"Enter the elements"<<endl;
-    for(i=0;i<n;i++)
+    for(ll i=0;i<n;i++)
     {
       cin >> arr[i];
     }
-    cout<<"Enter the number you want to search "<<endl;
+    
+    ll num;                     // The element to be searched.
     cin >> num;
-    for(i=0;i<=n;i++)
+    
+    for(ll i=0;i<n;i++)
     {
-        if(num==arr[i])
+        if(arr[i]==num)
         {
             cout<<"Number Found at index number "<<i;
             return 0;
