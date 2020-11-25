@@ -1,48 +1,48 @@
 #include <bits/stdc++.h>             // MANDATORY CONDITION ---------->>>>>>>>>>>>>  { Elements must be in a SORTED order. }
+#define ll long long int 
 using namespace std;
 
-int main()
-{
-    int num,key,i,mid;
-    int l=0;                                                     // lower index value in array.
 
-    cout<<"Enter the no elements"<<endl;                            
-    cin >> num;
-    
-    int arr[num];                                                 // Array Size initialization.
-    
-    cout<<"Enter the elements"<<endl;                             //    I/P
-    for(i=0;i<num;i++)
+int binary_search(ll arr[] , ll l , ll r, ll key)
+{
+    while(l<=r)
     {
-      cin>> arr[i];
-    }
-    
-    cout<<"Enter the number you want to search "<<endl;           // Element to found.
-    cin >> key;
-    
-    int k=-1;
-    int  t=num-1;                                                 // Higher index value in array.      
-    
-    while( l <= t )
-    {
-    //  mid = l + ( t-1 )/2; 
-        mid = (l+t)/2;                                           // Comparision.
-        if(arr[mid]==key)
+        ll mid = l+((r-l)/2);
+        
+        if(arr[mid] == key)
         {
-            k=mid;
+            cout<<"Number Found at index number "<<mid;
+            return 0;
         }
-        if(arr[mid] < key)
+        else if(arr[mid]<key)
         {
             l = mid+1;
         }
         else
         {
-            t = mid-1;
+            r = mid-1;
         }
     }
-    if(k!=-1)                                                    //  O/P
-        cout<<"Number Found at index number "<<k;
-    else
-        cout<<"Number not Found";
+    cout<<"Number not Found";
+    return 0;
+}
+
+
+int main()
+{
+    ll num;                     // Size of the Array
+    cin>>num;
+    
+    ll arr[num];                // Initialization of an Array
+    
+    for(ll i=0;i<num;i++)      
+    {
+        cin>>arr[i];
+    }
+    
+    ll key;                     // The element to be searched.
+    cin>>key;
+    
+    binary_search(arr,0,(num-1),key);
     return 0;
 }
