@@ -1,25 +1,13 @@
-#include <bits/stdc++.h>
+#include <bits/stdc++.h>             // MANDATORY CONDITION ---------->>>>>>>>>>>>>  { Elements must be in a SORTED order. }
 #define ll long long int 
 using namespace std;
 
-int main()
+
+int linear_search(ll arr[] , ll num , ll key)
 {
-    ll n;
-    cin >> n;
-    
-    ll arr[n];
-        
-    for(ll i=0;i<n;i++)
+    for(ll i=0;i<num;i++)
     {
-      cin >> arr[i];
-    }
-    
-    ll num;                     // The element to be searched.
-    cin >> num;
-    
-    for(ll i=0;i<n;i++)
-    {
-        if(arr[i]==num)
+        if(arr[i]==key)
         {
             cout<<"Number Found at index number "<<i;
             return 0;
@@ -28,3 +16,25 @@ int main()
     cout<<"Number not Found";
     return 0;
 }
+
+
+int main()
+{
+    ll num;                     // Size of the Array
+    cin>>num;
+    
+    ll arr[num];                // Initialization of an Array
+    
+    for(ll i=0;i<num;i++)      
+    {
+        cin>>arr[i];
+    }
+    
+    ll key;                     // The element to be searched.
+    cin>>key;
+    
+    linear_search(arr,num,key);
+
+    return 0;
+}
+
