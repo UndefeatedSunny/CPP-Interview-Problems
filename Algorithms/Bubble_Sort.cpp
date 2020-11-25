@@ -15,8 +15,8 @@ void print(ll arr[] , ll num)           // Printing
 void swap(ll *n1 , ll *n2)              // Swapping
 {
     ll temp = *n1;
-    *n2 = *n1;
-    *n1 = temp;
+    *n1 = *n2;
+    *n2 = temp;
 } 
     
 void bubble_sort(ll arr[] , ll num)     // Sorting 
