@@ -34,7 +34,7 @@ void selection_sort(ll arr[] , ll num)      // Sorting
                 min=j;
             }
         }
-        if(min!=i)
+        if(min!=i)                          // Important Condition
         {
             swap(&arr[i],&arr[min]);
         }
