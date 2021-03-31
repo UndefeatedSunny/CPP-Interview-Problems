@@ -1180,3 +1180,179 @@ int main()
 {
     return 0;
 }
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Point
+{
+    friend istream& operator >>(istream &in,Point &rhs);
+    friend ostream& operator <<(ostream &out,const Point &rhs);
+
+    private:
+        int x;
+        int y;
+    public:
+        Point();                        // Default Constructor 
+        Point(int x, int y);            // Parameterized Constructor
+        Point(const Point &rhs);        // Copy Constructor
+        ~Point()                        // Destructor
+        {
+            cout<<endl<<"Destructor Called"<<endl;
+        }
+
+        bool operator ==(const Point &rhs);
+        void operator =(const Point &rhs);
+
+        Point operator +(const Point &rhs);
+        Point operator -(const Point &rhs);
+        Point operator ++();        // (++x) Pre-Increment
+        Point operator ++(int x);   // (x++) Post-Increment
+        Point operator --();        // (--x) Pre-Decrement
+        Point operator --(int x);   // (x--) Post-Decrement
+
+        void display();
+
+};
+ostream& operator <<(ostream &out,const Point &rhs)
+{
+    out<<rhs.x<<" "<<rhs.y;
+    return out;
+}
+istream& operator >>(istream &in,Point &rhs)
+{
+    in>>rhs.x>>rhs.y;
+    return in;
+}
+void Point::display()
+{
+    cout<<"x="<<x<<endl<<"y="<<y<<endl;
+}
+///////////////////////////////////////////////////////////////////////////
+
+bool Point::operator ==(const Point &rhs)
+{
+    if((x==rhs.x)&&(y==rhs.y))
+    {
+        return true;
+    }
+    return false;
+}
+
+void Point::operator =(const Point &rhs)
+{
+    x=rhs.x;
+    y=rhs.y;
+}
+
+Point Point::operator ++()
+{
+    Point temp;
+    temp.x=++x;
+    temp.y=++y;
+    return temp;    
+}
+Point Point::operator ++(int x)
+{
+    Point temp;
+    temp.x=x++;
+    temp.y=y++;
+    return temp;    
+}
+Point Point::operator --()
+{
+    Point temp;
+    temp.x=--x;
+    temp.y=--y;
+    return temp;    
+}
+Point Point::operator --(int x)
+{
+    Point temp;
+    temp.x=x--;
+    temp.y=y--;
+    return temp;    
+}
+
+/////////////////////////////////////////////////////////////////////////////
+
+Point Point::operator -(const Point &rhs)
+{
+    Point temp;
+    temp.x=x-rhs.x;
+    temp.y=y-rhs.y;
+    return temp;
+}
+Point Point::operator +(const Point &rhs)
+{
+    Point temp;
+    temp.x=x+rhs.x;
+    temp.y=y+temp.y;
+    return temp;
+}
+
+Point::Point(const Point &rhs)
+{
+    x=rhs.x;
+    y=rhs.y;
+}
+Point::Point(int x, int y)
+{
+    this->x=x;
+    this->y=y;
+}
+Point::Point()
+{
+    x=0;
+    y=0;
+}
+
+int main()
+{
+    Point p1;
+    Point p2(10,20);
+
+    p1.display();
+    p2.display();
+                                            // We can also write like this -->> p1.operator==(p2)
+
+    Point p3 = p1;
+    p3.display();
+    
+    p1 = p2;
+    if(p1 == p2) 
+    {
+        cout << "Point are EQUAL." << endl;
+    }
+
+    p3 = ++p1;
+    cout<<"After Pre-Increment -> ";
+    p3.display();
+    
+    p3 = p1++;
+    cout<<"After Post-Increment -> ";
+    p3.display();   
+    
+    p3 = ++p1;
+    cout<<"After Pre-Increment (Proof of Post-Increment)-> ";
+    p3.display();
+
+    Point p4(13,24);
+    
+    p3 = --p1;
+    cout<<"After Pre-Decrement -> ";
+    p3.display();
+  
+    p3 = p1--;
+    cout<<"After Post-Decrement -> ";
+    p3.display(); 
+    
+    p3 = --p1;
+    cout<<"After Pre-Decrement (Proof of Post-Decrement)-> ";
+    p3.display();
+    cout<<endl<<endl<<"-_-";
+
+    return 0;
+}
