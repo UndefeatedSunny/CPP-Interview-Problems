@@ -1029,6 +1029,7 @@ void pop()
         head=temp->next;
         printf("%d",temp->data);
         free(temp);
+	size--;
     }
 }
 int main()
