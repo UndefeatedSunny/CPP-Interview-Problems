@@ -1036,3 +1036,147 @@ int main()
 {
     return 0;
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#include <bits/stdc++.h>
+using namespace std;
+class Matrix
+{
+private:
+    int row;
+    int column;
+    int ** ptr;                   // 2-D Pointer Way Of Representation
+
+public:
+    Matrix(int r,int c);         // Parameterized Operator
+
+    void set_matrix();
+    void display();
+
+    Matrix operator +(const Matrix &mat);
+    Matrix operator *(const Matrix &mat);
+
+    friend ostream& operator <<(ostream& os , const Matrix &mat);
+};
+
+ostream& operator <<(ostream& os , const Matrix &mat)
+{
+    for(int i=0;i<mat.row;i++)
+    {
+        for(int j=0;j<mat.column;j++)
+        {
+            os<<mat.ptr[i][j]<< " ";
+        }
+        os<<endl;
+    }
+    return os;
+}
+
+Matrix Matrix::operator *(const Matrix &mat)
+{
+    Matrix temp(row,column);
+    if(column==mat.row)
+    {
+        for(int i=0;i<row;i++)
+        {
+            for(int j=0;j<mat.column;j++)
+            {
+                temp.ptr[i][j]=0;
+                for(int k=0;k<column;k++)
+                {
+                    temp.ptr[i][j] += (ptr[i][k]*mat.ptr[k][j]);
+                }
+            }
+        }
+    }
+    else
+    {
+        cout<<"Invalid Multiplication Operation"<<endl;
+        for(int i=0;i<mat.row;i++)
+        {
+            for(int j=0;j<mat.column;j++)
+            {
+                temp.ptr[i][j] = 0;
+            }
+        }
+    }
+    return(temp);
+}
+
+Matrix Matrix::operator +(const Matrix &mat)
+{
+    Matrix temp(row,column);
+    if(row==mat.row && column==mat.column)
+    {
+        for(int i=0;i<row;i++)
+        {
+            for(int j=0;j<column;j++)
+            {
+                temp.ptr[i][j] = ptr[i][j]+mat.ptr[i][j];
+            }
+        }
+    }
+    else
+    {
+        cout<<"Invalid Addition Operation"<<endl;
+        for(int i=0;i<mat.row;i++)
+        {
+            for(int j=0;j<mat.column;j++)
+            {
+                temp.ptr[i][j] = 0;
+            }
+        }
+    }
+    return(temp);
+}
+
+Matrix::Matrix(int r,int c) // Parameterized Constructor
+{
+    row=r;
+    column=c;
+
+    ptr=new int*[row];           // Allocation of Memory
+    for(int i=0;i<row;i++)
+    {
+        ptr[i]=new int[column];
+    }
+    for(int i=0;i<row;i++)
+    {
+        for(int j=0;j<column;j++)
+        {
+            ptr[i][j]=0;
+        }
+    }
+}
+
+
+void Matrix::set_matrix()     // Data Insertion
+{
+    for(int i=0;i<row;i++)
+    {
+        for(int j=0;j<column;j++)
+        {
+            cin>>ptr[i][j];
+        }
+    }
+}
+
+
+void Matrix::display()          // Print Data
+{
+    for(int i=0;i<row;i++)
+    {
+        cout<<endl;
+        for(int j=0;j<column;j++)
+        {
+            cout<<ptr[i][j]<<" ";
+        }
+    }
+    cout<<endl;
+}
+
+int main()
+{
+    return 0;
+}
