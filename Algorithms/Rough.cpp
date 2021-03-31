@@ -1356,3 +1356,110 @@ int main()
 
     return 0;
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+#include<stdio.h>
+#include<stdbool.h>
+#include<string.h>
+
+int strlen1(const char *ptr)
+{
+    int count=0;
+    while(*ptr!='\0')
+    {
+        count++;
+        ptr+=1;
+    }
+    return count;
+}
+
+void strcat1(char *ptr1, const char *ptr2)
+{
+    while(*ptr1!='\0')
+    {
+        ptr1++;
+    }
+    while(*ptr2!='\0')
+    {
+        *ptr1=*ptr2;
+        ptr1++;
+        ptr2++;
+    }
+    *ptr1='\0';
+}
+
+void strcpy1(char *ptr1, const char *ptr2)
+{
+    while(*ptr2!='\0')
+    {
+        *ptr1=*ptr2;
+        ptr1++;
+        ptr2++;
+    }
+    *ptr1='\0';
+}
+
+bool strcmp1(const char *ptr1, const char *ptr2)
+{
+    int len1=strlen1(ptr1);
+    int len2=strlen1(ptr2);
+    int max=(len1>len2)?len1:len2;
+    
+    for(int i=0;i<max;i++)
+    {
+        if(*(ptr1+i)!=*(ptr2+i))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+void swap(char *ptr1,char *ptr2)
+{
+    char temp;
+    temp=*ptr1;
+    *ptr1=*ptr2;
+    *ptr2=temp;
+}
+void strev1(char *ptr)
+{
+   int len=strlen1(ptr);
+   int num=(len/2);
+    for(int i=0;i<num;i++)
+    {
+        swap(&ptr[i],&ptr[num+len-i-1]);
+    }
+}
+
+int main() 
+{
+    char str[100];
+    char str1[100]="Hello";
+    scanf("%[^\n]%*c",&str);
+    printf("%s",str);
+    
+    printf("\n%d",strlen1(str));    // Strlen
+    
+    strcat1(str,str1);              // Strcat
+    printf("\n%s",str);
+    
+    strcpy1(str,str1);              // Strcpy
+    printf("\n%s",str);
+    strcpy1(str,"Hello1"); 
+    printf("\n%s",str);
+    if(strcmp1(str,str1))           // strcmp
+    {
+        printf("\nBoth are Same");
+    }
+    else
+    {
+        printf("\nBoth are Different");
+    }
+    char str3[100]="Hello";
+    strev1(str3);                   // strrev
+    printf("\n->%s",str3);
+    return 0;
+}
