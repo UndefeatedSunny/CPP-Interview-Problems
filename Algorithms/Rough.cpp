@@ -1012,7 +1012,7 @@ void push(int data)
         newnode=(struct node*)malloc(sizeof(struct node));
         newnode->data=data;
         newnode->next=head; 
-        newnode=head;
+        head=newnode;
         size++;
     }
 }
