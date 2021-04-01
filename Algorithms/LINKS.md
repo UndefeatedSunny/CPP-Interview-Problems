@@ -63,3 +63,9 @@ https://www.geeksforgeeks.org/overloading-new-delete-operator-c/
 
 Storage for Strings in C
 https://www.geeksforgeeks.org/storage-for-strings-in-c/
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+pointer to an array and array of pointers
+https://www.geeksforgeeks.org/difference-between-pointer-to-an-array-and-array-of-pointers/
+
