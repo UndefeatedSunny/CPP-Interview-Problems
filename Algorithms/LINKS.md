@@ -25,6 +25,9 @@ https://www.geeksforgeeks.org/const-qualifier-in-c/
 Interesting Facts about Macros and Preprocessors in C
 https://www.geeksforgeeks.org/interesting-facts-preprocessors-c/
 
+What’s difference between “array” and “&array” for “int array[5]” ?
+https://www.geeksforgeeks.org/whats-difference-between-array-and-array-for-int-array5/
+
 Dynamic Memory Allocation in C using malloc(), calloc(), free() and realloc()
 https://www.geeksforgeeks.org/dynamic-memory-allocation-in-c-using-malloc-calloc-free-and-realloc/
 
