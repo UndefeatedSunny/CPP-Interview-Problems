@@ -6,6 +6,9 @@ Can static functions be virtual in C++?
 
 https://www.geeksforgeeks.org/g-fact-29/
 
+C++ ‘this’ Pointer
+https://beginnersbook.com/2017/08/cpp-this-pointer/
+
 Function Pointer in C
 https://www.geeksforgeeks.org/function-pointer-in-c/
 https://www.geeksforgeeks.org/how-to-declare-a-pointer-to-a-function/
