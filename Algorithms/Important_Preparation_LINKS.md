@@ -75,3 +75,7 @@ https://www.geeksforgeeks.org/storage-for-strings-in-c/
 pointer to an array and array of pointers
 https://www.geeksforgeeks.org/difference-between-pointer-to-an-array-and-array-of-pointers/
 
+
+SOC LINKS   <<---------
+
+
