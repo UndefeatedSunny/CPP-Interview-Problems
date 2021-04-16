@@ -1463,3 +1463,256 @@ int main()
     printf("\n->%s",str3);
     return 0;
 }
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+	
+///////////////////////////	2	///////////////////
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int strlen1(const char *str)
+{
+    int count=0;
+    while(*str!='\0')
+    {
+        count++;
+        str++;
+    }
+    return count;
+}
+void str_cat(char* s1, char* s2)
+{
+    while(*s1!='\0')
+    {
+        *s1++;
+    }
+    while(*s2!='\0')
+    {
+        *s1=*s2;
+        *s2++;
+        *s1++;
+    }
+    *s1='\0';
+}
+void solve(char* str1, char* str2)
+{
+    int x=strlen1(str1);
+    int y=strlen1(str2);
+
+    int i=0;
+    int j=0;
+    int m=0;
+    int n=0;
+    int k=0;
+    char *ptr=(char *)malloc(100);
+    char *ch=(char *)malloc(1);
+    char c;
+    int count=0;
+    int ans=0;
+                                            // abcd   &  abc
+    for(i=0;i<x;i++)        // 4
+    {
+        count=0;
+        for(j=i;j<x;j++)    // 4
+        {
+            c=str1[j];
+            *ch=c;
+            str_cat(ptr,ch);
+            k=strlen1(ptr);
+     
+            //  abcd     -->>  a ab  abc  abcd   b  bc bcd  c cd d 
+    
+            //    abc    -->>    a ab abc   b   bc  c 
+            
+            char c1;
+            int m=0;
+            char *ptr1=(char *)malloc(100);
+            char *ch1=(char *)malloc(1);
+            int k1;
+            for(int m=0;m<y;m++)
+            {
+                for(int l=m;l<y;l++)
+                {
+                    c1=str2[l];
+                    *ch1=c1;
+                    str_cat(ptr1,ch1);
+                    k1=strlen1(ptr1);
+                    count=0;
+                    for(int z=0;z<k;z++)
+                    {
+                        if(ptr[z]==ptr[z])
+                        {
+                            count++;
+                        }
+                        if(count==k1&&strlen1(ptr1)==strlen1(ptr))
+                        {
+                            printf("%s , ",ptr1);
+                            ans++;
+                            break;
+                        }
+                        if(strlen1(ptr1)==y && strlen1(ptr)==x)
+                        {
+                            printf("\nTotal matched string is %d",ans);
+                            return;
+                        }
+                    }
+                    count=0;
+                }
+                *ptr1='\0';
+            }
+        }
+        *ptr='\0';
+    }
+}
+
+int main()
+{
+    char str1[]="abcd";
+    char str2[]="abc";
+
+    solve(str1,str2);
+
+    return 0;
+}
+
+/////////////////////////////////	3        ////////////////////////////////////
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int strlen1(const char *str)
+{
+    int count=0;
+    while(*str!='\0')
+    {
+        count++;
+        str++;
+    }
+    return count;
+}
+void str_cat(char* s1, char* s2)
+{
+    while(*s1!='\0')
+    {
+        *s1++;
+    }
+    while(*s2!='\0')
+    {
+        *s1=*s2;
+        *s2++;
+        *s1++;
+    }
+    *s1='\0';
+}
+void solve(char* str1, char* str2, char* str3)
+{
+    int x=strlen1(str1);
+    int y=strlen1(str2);
+    int z=strlen1(str3);
+    int i=0;
+    int j=0;
+    int count=0;
+    char *ch=(char *)malloc(1);
+    char c;
+    char *ptr=(char *)malloc(z*(x+y));
+
+    for(i=0;i<x;i++)    // abcabcfg  ->8
+    {
+        c=str1[i];
+        *ch=c;
+        count=0;
+        for(j=0;j<y;j++)//abc  ->3
+        {
+            if(str1[i+j]==str2[j])
+            {
+                ++count;
+                if(count==y)
+                {
+                    str_cat(ptr,str3);
+                    i=i+2;
+                }
+            }
+            else
+            {
+                str_cat(ptr,ch);
+                break;
+            }
+        }
+    }
+    printf("%s",ptr);
+}
+int main()
+{
+    char str1[]="abcabcfg";
+    char str2[]="abc";
+    char str3[]="k";
+
+    solve(str1,str2,str3);
+
+    return 0;
+}
+
+
+////////////////////    CODE-1    ///////////////////////
+
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int len(const char *str)
+{
+    int count=0;
+    while(*str!='\0')
+    {
+        count++;
+        str++;
+    }
+    return count;
+}
+
+char* concat(const char *str1, const char *str2)
+{
+    int len1=len(str1);
+    int len2=len(str2);
+    
+    char *ptr =(char *)malloc(len1+len2+5);     // Length of str1 + Length of str2 + 5(Pine)
+    
+    int i=0,j=0,k=0;
+    
+    while(i<len1)
+    {
+        *(ptr+j++)=*(str1+i++);
+    }
+    
+    while(k<len2)
+    {
+        *(ptr+j++)=*(str2+k++);
+    }
+    
+    char *p="PinE";
+    
+    for(int i=0;i<*(p+i);i++)
+    {
+        *(ptr+j+i)=*(p+i);
+    }
+
+    ptr[j+4]='\0';
+
+    return ptr;
+}
+
+int main() 
+{
+	char *str1="Sunny";
+	char *str2="Chaudhary";
+
+	printf("%s",concat(str1,str2));
+
+	return 0;
+}
+	
+	
+	
