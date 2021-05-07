@@ -56,6 +56,9 @@ https://www.youtube.com/results?search_query=+size_t+
 typedef versus #define in C
 https://www.geeksforgeeks.org/typedef-versus-define-c/
 
+“delete this” in C++
+https://www.geeksforgeeks.org/delete-this-in-c/
+
 
 EXTRA
 
