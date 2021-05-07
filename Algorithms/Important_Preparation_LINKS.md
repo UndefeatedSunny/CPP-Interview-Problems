@@ -59,6 +59,9 @@ https://www.geeksforgeeks.org/typedef-versus-define-c/
 “delete this” in C++
 https://www.geeksforgeeks.org/delete-this-in-c/
 
+vIRTUAL dESTRUCTOR
+https://www.geeksforgeeks.org/virtual-destructor/
+
 
 EXTRA
 
